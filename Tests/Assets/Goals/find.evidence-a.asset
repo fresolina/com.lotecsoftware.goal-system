@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec3d8a028cb9d489cf284bce919d02, type: 3}
+  m_Name: find.evidence-a
+  m_EditorClassIdentifier: 
+  _goal:
+    _item:
+      _name: Find Evidence A
+      _description: 
+      _added:
+        m_PersistentCalls:
+          m_Calls: []
+    _completed:
+      m_PersistentCalls:
+        m_Calls: []
+    _itemToFind: {fileID: 11400000, guid: 36d97137e9ce72f4e81f3f3a2646de88, type: 2}

@@ -1,0 +1,18 @@
+{
+    "name": "Lotec.GoalsSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b4ef4a5b908d4b94c8ab282300351eb2",
+        "GUID:51ffa30c2ca987742bcbc86c51cbeb19",
+        "GUID:a541f826126a40443a2a42cdfe75a904"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

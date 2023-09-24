@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ec3d8a028cb9d489cf284bce919d02, type: 3}
+  m_Name: find.evidence-a2
+  m_EditorClassIdentifier: 
+  _goal:
+    _item:
+      _name: Find Evidence A
+      _description: 
+      _added:
+        m_PersistentCalls:
+          m_Calls: []
+    _completed:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 4fdd8d9f858152042b48d851c69e0a17, type: 2}
+          m_TargetAssemblyTypeName: lotecsoftware.goals.GoalApiSO, Lotec.GoalsSystem
+          m_MethodName: AddItem
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 11400000, guid: b937b9319fb61e5409d1c895496e39eb,
+              type: 2}
+            m_ObjectArgumentAssemblyTypeName: lotecsoftware.items.ItemSO, Lotec.ItemSystem
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    _itemToFind: {fileID: 11400000, guid: 36d97137e9ce72f4e81f3f3a2646de88, type: 2}

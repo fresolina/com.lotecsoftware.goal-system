@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 4f6c17b7fceb51e4098c79fca1616647
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GoalApiAsset: {fileID: 11400000, guid: 4fdd8d9f858152042b48d851c69e0a17, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
