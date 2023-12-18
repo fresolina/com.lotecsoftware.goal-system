@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using lotecsoftware.items;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,7 +30,7 @@ namespace lotecsoftware.goals {
                 _connected.AddListener(() => action.Invoke());
             }
 
-            _autoConnect = string.IsNullOrEmpty(To.Name);
+            _autoConnect = string.IsNullOrEmpty(((IItem)To)?.Name);
         }
     }
 

@@ -20,10 +20,10 @@ namespace lotecsoftware.goals {
         int Count { get; }
     }
 
-    public interface ILinkableItem : IItem, IConnectionList { }
+    public interface ILinkableItem : IConnectionList { }
 
     [System.Serializable]
-    public class LinkableItem : ILinkableItem {
+    public class LinkableItem : IItem, ILinkableItem {
         [SerializeField] Item _item;
         [SerializeField] ConnectionList _connectionsList;
 
