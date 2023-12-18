@@ -6,7 +6,7 @@ using UnityEngine.Events;
 namespace lotecsoftware.goals {
 
     public interface IConnection {
-        ILinkableItem To { get; }
+        ILinkable To { get; }
         bool AutoConnect { get; }
         /// <summary>
         /// Action when connection has been made.
@@ -16,7 +16,7 @@ namespace lotecsoftware.goals {
     }
 
     public class Connection : IConnection {
-        public ILinkableItem To { get; }
+        public ILinkable To { get; }
         [SerializeField] bool _autoConnect = false;
         [SerializeField] UnityEvent _connected = new();
 
@@ -24,7 +24,7 @@ namespace lotecsoftware.goals {
         public bool AutoConnect => _autoConnect;
 
         public Connection() : this(null, null) { }
-        public Connection(ILinkableItem to = null, System.Action action = null) {
+        public Connection(ILinkable to = null, System.Action action = null) {
             To = to;
             if (action != null) {
                 _connected.AddListener(() => action.Invoke());
@@ -48,7 +48,7 @@ namespace lotecsoftware.goals {
             }
         }
 
-        public IConnection ConnectionTo(ILinkableItem to) {
+        public IConnection ConnectionTo(ILinkable to) {
             if (_connections == null)
                 return null;
 

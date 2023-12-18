@@ -9,8 +9,8 @@ namespace lotecsoftware.goals {
         [SerializeField] ConnectionGoalSOData _connectionGoal;
 
         // IConnectionGoal
-        public ILinkableItem From => ((IConnectionGoal)_connectionGoal).From;
-        public ILinkableItem To => ((IConnectionGoal)_connectionGoal).To;
+        public ILinkable From => ((IConnectionGoal)_connectionGoal).From;
+        public ILinkable To => ((IConnectionGoal)_connectionGoal).To;
         // IGoal
         public override UnityEvent Completed => ((IGoal)_connectionGoal).Completed;
         public override bool IsCompleted => ((IGoal)_connectionGoal).IsCompleted;
@@ -28,7 +28,7 @@ namespace lotecsoftware.goals {
         [SerializeField, NotNull] LinkableItemSO _from;
         [SerializeField, NotNull] LinkableItemSO _to;
 
-        public ILinkableItem From => _from;
-        public ILinkableItem To => _to;
+        public ILinkable From => _from;
+        public ILinkable To => _to;
     }
 }

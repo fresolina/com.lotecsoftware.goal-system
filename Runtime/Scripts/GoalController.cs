@@ -10,7 +10,7 @@ namespace lotecsoftware.goals {
     /// </summary>
     [System.Serializable]
     public class GoalController : IGoalApi {
-        [SerializeField] UnityEvent<ILinkableItem, ILinkableItem> _connectFailed = new();
+        [SerializeField] UnityEvent<ILinkable, ILinkable> _connectFailed = new();
         [SerializeField] UnityEvent<IGoal> _goalCompleted = new();
 
         readonly List<IGoal> _goalsTodo = new();
@@ -20,7 +20,7 @@ namespace lotecsoftware.goals {
         public List<IGoal> Goals { get; } = new();
 
         public int CompletedGoalsCount { get; private set; } = 0;
-        public UnityEvent<ILinkableItem, ILinkableItem> ConnectFailed => _connectFailed;
+        public UnityEvent<ILinkable, ILinkable> ConnectFailed => _connectFailed;
         public UnityEvent<IGoal> GoalCompleted => _goalCompleted;
         public bool AutoConnect { get => _linkableItemController.AutoConnect; set => _linkableItemController.AutoConnect = value; }
 
@@ -41,7 +41,7 @@ namespace lotecsoftware.goals {
             _goalsTodo.Add(goal);
         }
 
-        public void Connect(ILinkableItem a, ILinkableItem b) {
+        public void Connect(ILinkable a, ILinkable b) {
             if (!_linkableItemController.Connect(a, b)) {
                 ConnectFailed?.Invoke(a, b);
                 return;

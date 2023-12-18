@@ -7,7 +7,7 @@ namespace lotecsoftware.goals {
     /// Handles ConnectionGoal.IsCompleted and connecting items.
     /// </summary>
     public class LinkableItemController : IItemApi {
-        readonly Dictionary<ILinkableItem, List<ILinkableItem>> _connectedItems;
+        readonly Dictionary<ILinkable, List<ILinkable>> _connectedItems;
         public ItemController ItemController { get; }
         public bool AutoConnect { get; set; }
 
@@ -45,7 +45,7 @@ namespace lotecsoftware.goals {
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns>Was connection made?</returns>
-        public bool Connect(ILinkableItem a, ILinkableItem b) {
+        public bool Connect(ILinkable a, ILinkable b) {
             if (HasEstablishedConnection(a, b) || HasEstablishedConnection(b, a))
                 return false;
             IConnection connection = a.ConnectionTo(b) ?? b.ConnectionTo(a);
@@ -57,7 +57,7 @@ namespace lotecsoftware.goals {
             return true;
         }
 
-        bool HasEstablishedConnection(ILinkableItem from, ILinkableItem to) {
+        bool HasEstablishedConnection(ILinkable from, ILinkable to) {
             if (!_connectedItems.ContainsKey(from)) {
                 _connectedItems[from] = new();
             }
@@ -65,7 +65,7 @@ namespace lotecsoftware.goals {
         }
 
         void FixAutoConnections(IItem itemBase) {
-            ILinkableItem item = itemBase as ILinkableItem;
+            ILinkable item = itemBase as ILinkable;
             if (item.Connections == null) {
                 return;
             }
@@ -85,14 +85,14 @@ namespace lotecsoftware.goals {
         /// <param name="from"></param>
         /// <param name="to"></param>
         /// <returns></returns>
-        bool IsConnected(ILinkableItem from, ILinkableItem to) {
+        bool IsConnected(ILinkable from, ILinkable to) {
             if (from is IItem fromItem && to is IItem toItem) {
                 return ItemController.HasItem(fromItem) && ItemController.HasItem(toItem) && HasConnection(from, to, requireConnected: true);
             }
             return false;
         }
 
-        bool connected(ILinkableItem from, ILinkableItem to) {
+        bool connected(ILinkable from, ILinkable to) {
             if (!_connectedItems.ContainsKey(from))
                 return false;
             return _connectedItems[from].Contains(to);
@@ -106,7 +106,7 @@ namespace lotecsoftware.goals {
         /// <param name="requireConnected"></param>
         /// <param name="depth"></param>
         /// <returns></returns>
-        bool HasConnection(ILinkableItem from, ILinkableItem to, bool requireConnected = false, int depth = 10) {
+        bool HasConnection(ILinkable from, ILinkable to, bool requireConnected = false, int depth = 10) {
             if (from == to) {
                 return true;
             }
@@ -135,8 +135,8 @@ namespace lotecsoftware.goals {
         // Helpers
         public int CountLinks() {
             int cnt = 0;
-            foreach (KeyValuePair<ILinkableItem, List<ILinkableItem>> pair in _connectedItems) {
-                List<ILinkableItem> list = pair.Value;
+            foreach (KeyValuePair<ILinkable, List<ILinkable>> pair in _connectedItems) {
+                List<ILinkable> list = pair.Value;
                 cnt += list.Count;
             }
             return cnt;
@@ -144,9 +144,9 @@ namespace lotecsoftware.goals {
 
         public void PrintConnectedItems() {
             Debug.Log("ConnectedItems:");
-            foreach (KeyValuePair<ILinkableItem, List<ILinkableItem>> pair in _connectedItems) {
+            foreach (KeyValuePair<ILinkable, List<ILinkable>> pair in _connectedItems) {
                 Debug.Log($"{pair.Key} -> ");
-                foreach (ILinkableItem toItem in pair.Value) {
+                foreach (ILinkable toItem in pair.Value) {
                     Debug.Log($"  {toItem}");
                 }
             }

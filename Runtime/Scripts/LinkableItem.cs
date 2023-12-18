@@ -10,7 +10,7 @@ namespace lotecsoftware.goals {
         /// </summary>
         /// <param name="to"></param>
         /// <returns>Connection</returns>
-        IConnection ConnectionTo(ILinkableItem to);
+        IConnection ConnectionTo(ILinkable to);
         /// <summary>
         /// List of all available connections this item has to other items.
         /// </summary>
@@ -20,10 +20,10 @@ namespace lotecsoftware.goals {
         int Count { get; }
     }
 
-    public interface ILinkableItem : IConnectionList { }
+    public interface ILinkable : IConnectionList { }
 
     [System.Serializable]
-    public class LinkableItem : IItem, ILinkableItem {
+    public class LinkableItem : IItem, ILinkable {
         [SerializeField] Item _item;
         [SerializeField] ConnectionList _connectionsList;
 
@@ -35,7 +35,7 @@ namespace lotecsoftware.goals {
         // IConnectionList
         public IEnumerable<IConnection> Connections => ((IConnectionList)_connectionsList).Connections;
         public int Count => _connectionsList.Count;
-        public IConnection ConnectionTo(ILinkableItem to) => ((IConnectionList)_connectionsList).ConnectionTo(to);
+        public IConnection ConnectionTo(ILinkable to) => ((IConnectionList)_connectionsList).ConnectionTo(to);
         public void AddConnection(IConnection connection) => ((IConnectionList)_connectionsList).AddConnection(connection);
 
         /// <summary>

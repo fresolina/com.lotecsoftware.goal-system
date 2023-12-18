@@ -18,7 +18,7 @@ namespace lotecsoftware.goals.tests {
             string path = AssetDatabase.GUIDToAssetPath(guid);
             yield return EditorSceneManager.LoadSceneAsyncInPlayMode(path, new LoadSceneParameters(LoadSceneMode.Single));
 
-            ILinkableItem[] items = GameObject.FindAnyObjectByType<GoalSystemTestSettings>().ItemAssets;
+            ILinkable[] items = GameObject.FindAnyObjectByType<GoalSystemTestSettings>().ItemAssets;
             _itemA = items[0];
             _itemABonus = items[1];
             _itemB = items[2];

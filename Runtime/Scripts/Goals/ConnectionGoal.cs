@@ -1,14 +1,14 @@
 namespace lotecsoftware.goals {
     public interface IConnectionGoal : IGoal {
-        ILinkableItem From { get; }
-        ILinkableItem To { get; }
+        ILinkable From { get; }
+        ILinkable To { get; }
     }
 
     public class ConnectionGoal : Goal, IConnectionGoal {
-        public ILinkableItem From { get; }
-        public ILinkableItem To { get; }
+        public ILinkable From { get; }
+        public ILinkable To { get; }
 
-        public ConnectionGoal(string description, ILinkableItem from, ILinkableItem to) {
+        public ConnectionGoal(string description, ILinkable from, ILinkable to) {
             _item = new(description: description);
             From = from;
             To = to;

@@ -7,11 +7,11 @@ using UnityEngine.TestTools;
 namespace lotecsoftware.goals.tests {
     public class TestGoalSystem {
         protected GoalController _goalController;
-        protected ILinkableItem _itemA;
-        protected ILinkableItem _itemExtra;
-        protected ILinkableItem _itemFromEvent;
-        protected ILinkableItem _itemB;
-        protected ILinkableItem _itemABonus;
+        protected ILinkable _itemA;
+        protected ILinkable _itemExtra;
+        protected ILinkable _itemFromEvent;
+        protected ILinkable _itemB;
+        protected ILinkable _itemABonus;
         protected IGoal _goalFindA;
         protected IGoal _goalFindA2;
         protected IGoal _goalLinkAToABonus;

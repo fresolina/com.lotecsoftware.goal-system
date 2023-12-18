@@ -14,11 +14,11 @@ namespace lotecsoftware.goals.tests {
             yield return EditorSceneManager.LoadSceneAsyncInPlayMode(path, new LoadSceneParameters(LoadSceneMode.Single));
 
             _goalCompleted = false;
-            _itemA = GameObject.Find("Evidence A").GetComponent<ILinkableItem>();
-            _itemABonus = GameObject.Find("Evidence ABonus").GetComponent<ILinkableItem>();
-            _itemB = GameObject.Find("Evidence B").GetComponent<ILinkableItem>();
-            _itemExtra = GameObject.Find("Extra item").GetComponent<ILinkableItem>();
-            _itemFromEvent = GameObject.Find("Item from event").GetComponent<ILinkableItem>();
+            _itemA = GameObject.Find("Evidence A").GetComponent<ILinkable>();
+            _itemABonus = GameObject.Find("Evidence ABonus").GetComponent<ILinkable>();
+            _itemB = GameObject.Find("Evidence B").GetComponent<ILinkable>();
+            _itemExtra = GameObject.Find("Extra item").GetComponent<ILinkable>();
+            _itemFromEvent = GameObject.Find("Item from event").GetComponent<ILinkable>();
 
             _goalController = GameObject.FindObjectOfType<GoalControllerMB>().GoalController;
             _goalFindA = GameObject.Find("Find Evidence A").GetComponent<GoalMB>();
