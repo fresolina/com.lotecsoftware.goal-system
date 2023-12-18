@@ -22,10 +22,11 @@ namespace lotecsoftware.goals {
         public int CompletedGoalsCount { get; private set; } = 0;
         public UnityEvent<ILinkableItem, ILinkableItem> ConnectFailed => _connectFailed;
         public UnityEvent<IGoal> GoalCompleted => _goalCompleted;
+        public bool AutoConnect { get => _linkableItemController.AutoConnect; set => _linkableItemController.AutoConnect = value; }
 
         public GoalController(ItemController itemController = null) {
             _linkableItemController = new LinkableItemController(itemController);
-            _linkableItemController.ItemController.Inventory.Added += (item) => {
+            _linkableItemController.ItemController.Inventory.Added += (IItem item) => {
                 UpdateCompletion();
             };
         }

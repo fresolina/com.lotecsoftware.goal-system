@@ -9,12 +9,14 @@ namespace lotecsoftware.goals {
     public class ConnectionForMB : IConnection {
         [SerializeField] string _title;
         [SerializeField, NotNull] LinkableItemMB _to;
+        [SerializeField] bool _autoConnect = false;
         [SerializeField] UnityEvent _connected;
 
         // Unity Workaround to get Array item title in inspector list, instead of "Element 0".
         public string Title { get { return _title; } internal set { _title = value; } }
         public ILinkableItem To => _to;
         public UnityEvent Connected => _connected;
+        public bool AutoConnect => _autoConnect;
     }
 
     // Wrap ConnectionList in Unity serializable objects.
@@ -50,6 +52,9 @@ namespace lotecsoftware.goals {
         }
 
         void OnValidate() {
+            if (_connectionsList == null)
+                return;
+
             // Workaround Unity not using ToString() for Array title in inspector
             foreach (ConnectionForMB item in _connectionsList.InternalConnectionsList) {
                 if (item.To is Object obj) {

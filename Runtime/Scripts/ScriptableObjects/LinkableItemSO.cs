@@ -9,12 +9,14 @@ namespace lotecsoftware.goals {
     public class ConnectionForSO : IConnection {
         [SerializeField] string _title;
         [SerializeField, NotNull] LinkableItemSO _to;
+        [SerializeField] bool _autoConnect = false;
         [SerializeField] UnityEvent _connected;
 
         // Unity Workaround to get Array item title in inspector list, instead of "Element 0".
         public string Title { get { return _title; } internal set { _title = value; } }
         public ILinkableItem To => _to;
         public UnityEvent Connected => _connected;
+        public bool AutoConnect => _autoConnect;
     }
 
     [System.Serializable]

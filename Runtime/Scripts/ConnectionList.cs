@@ -6,6 +6,7 @@ namespace lotecsoftware.goals {
 
     public interface IConnection {
         ILinkableItem To { get; }
+        bool AutoConnect { get; }
         /// <summary>
         /// Action when connection has been made.
         /// </summary>
@@ -15,14 +16,20 @@ namespace lotecsoftware.goals {
 
     public class Connection : IConnection {
         public ILinkableItem To { get; }
+        [SerializeField] bool _autoConnect = false;
         [SerializeField] UnityEvent _connected = new();
-        public UnityEvent Connected => _connected;
 
+        public UnityEvent Connected => _connected;
+        public bool AutoConnect => _autoConnect;
+
+        public Connection() : this(null, null) { }
         public Connection(ILinkableItem to = null, System.Action action = null) {
             To = to;
             if (action != null) {
                 _connected.AddListener(() => action.Invoke());
             }
+
+            _autoConnect = string.IsNullOrEmpty(To.Name);
         }
     }
 

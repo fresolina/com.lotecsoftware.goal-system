@@ -218,6 +218,7 @@ MonoBehaviour:
     _connections:
     - _title: Evidence A
       _to: {fileID: 529287359}
+      _autoConnect: 0
       _connected:
         m_PersistentCalls:
           m_Calls: []
@@ -290,6 +291,7 @@ MonoBehaviour:
     _connections:
     - _title: Evidence ABonus
       _to: {fileID: 1597561747}
+      _autoConnect: 1
       _connected:
         m_PersistentCalls:
           m_Calls:

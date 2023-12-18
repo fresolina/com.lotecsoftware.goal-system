@@ -9,6 +9,7 @@ namespace lotecsoftware.goals {
     public class LinkableItemController : IItemApi {
         readonly Dictionary<ILinkableItem, List<ILinkableItem>> _connectedItems;
         public ItemController ItemController { get; }
+        public bool AutoConnect { get; set; }
 
         public LinkableItemController(ItemController itemController = null) {
             _connectedItems = new();
@@ -70,8 +71,7 @@ namespace lotecsoftware.goals {
             }
 
             foreach (IConnection connection in item.Connections) {
-                if (string.IsNullOrEmpty(connection.To.Name)) {
-                    // If Name is empty, it means this item is a description helper and should be auto-connected. maybe
+                if (AutoConnect || connection.AutoConnect) {
                     Connect(item, connection.To);
                 }
             }

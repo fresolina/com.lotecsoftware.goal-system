@@ -18,4 +18,5 @@ MonoBehaviour:
     _added:
       m_PersistentCalls:
         m_Calls: []
-  _connections: []
+  _connectionsList:
+    _connections: []

@@ -20,8 +20,9 @@ MonoBehaviour:
         m_Calls: []
   _connectionsList:
     _connections:
-    - _title: B->A
+    - _title: evidence-a
       _to: {fileID: 11400000, guid: 36d97137e9ce72f4e81f3f3a2646de88, type: 2}
+      _autoConnect: 0
       _connected:
         m_PersistentCalls:
           m_Calls: []

@@ -20,8 +20,9 @@ MonoBehaviour:
         m_Calls: []
   _connectionsList:
     _connections:
-    - _title: A->Bonus
+    - _title: evidence-a.bonus
       _to: {fileID: 11400000, guid: ae678d7f35ef3b043b676920e3bae7df, type: 2}
+      _autoConnect: 1
       _connected:
         m_PersistentCalls:
           m_Calls:
