@@ -20,7 +20,7 @@ namespace lotecsoftware.goals {
     }
 
     [System.Serializable]
-    public class ConnectionListForSO : IConnectionList {
+    public class ConnectionListForSO : ILinkable {
         [SerializeField] List<ConnectionForSO> _connections = new();
         ConnectionList _connectionList;
 
@@ -28,11 +28,11 @@ namespace lotecsoftware.goals {
             _connectionList = new(_connections);
         }
 
-        // IConnectionList
-        public IEnumerable<IConnection> Connections => ((IConnectionList)_connectionList).Connections;
-        public int Count => ((IConnectionList)_connectionList).Count;
-        public void AddConnection(IConnection connection) => ((IConnectionList)_connectionList).AddConnection(connection);
-        public IConnection ConnectionTo(ILinkable to) => ((IConnectionList)_connectionList).ConnectionTo(to);
+        // ILinkable
+        public IEnumerable<IConnection> Connections => ((ILinkable)_connectionList).Connections;
+        public int Count => ((ILinkable)_connectionList).Count;
+        public void AddConnection(IConnection connection) => ((ILinkable)_connectionList).AddConnection(connection);
+        public IConnection ConnectionTo(ILinkable to) => ((ILinkable)_connectionList).ConnectionTo(to);
         internal List<ConnectionForSO> InternalConnectionsList => _connections;
     }
 

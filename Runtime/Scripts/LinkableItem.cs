@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 namespace lotecsoftware.goals {
-    public interface IConnectionList {
+    public interface ILinkable {
         /// <summary>
         /// Returns the connection if there is an available connection to 'to'.
         /// </summary>
@@ -20,23 +20,22 @@ namespace lotecsoftware.goals {
         int Count { get; }
     }
 
-    public interface ILinkable : IConnectionList { }
+    // public interface ILinkable : ILinkable { }
 
     [System.Serializable]
     public class LinkableItem : IItem, ILinkable {
         [SerializeField] Item _item;
         [SerializeField] ConnectionList _connectionsList;
 
-        // ILinkableItem
         // IItem
         public string Name => ((IItem)_item).Name;
         public string Description => ((IItem)_item).Description;
         public UnityEvent Added => ((IItem)_item).Added;
-        // IConnectionList
-        public IEnumerable<IConnection> Connections => ((IConnectionList)_connectionsList).Connections;
+        // ILinkableItem
+        public IEnumerable<IConnection> Connections => ((ILinkable)_connectionsList).Connections;
         public int Count => _connectionsList.Count;
-        public IConnection ConnectionTo(ILinkable to) => ((IConnectionList)_connectionsList).ConnectionTo(to);
-        public void AddConnection(IConnection connection) => ((IConnectionList)_connectionsList).AddConnection(connection);
+        public IConnection ConnectionTo(ILinkable to) => ((ILinkable)_connectionsList).ConnectionTo(to);
+        public void AddConnection(IConnection connection) => ((ILinkable)_connectionsList).AddConnection(connection);
 
         /// <summary>
         /// An item that has is linked to other items.

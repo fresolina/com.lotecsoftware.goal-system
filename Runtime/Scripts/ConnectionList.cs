@@ -35,7 +35,7 @@ namespace lotecsoftware.goals {
     }
 
     [System.Serializable]
-    public class ConnectionList : IConnectionList {
+    public class ConnectionList : ILinkable {
         readonly List<IConnection> _connections;
         public IEnumerable<IConnection> Connections => _connections;
         public int Count => _connections.Count;
